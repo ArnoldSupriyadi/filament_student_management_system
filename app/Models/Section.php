@@ -14,7 +14,7 @@ class Section extends Model
         'name'
     ];
 
-    public function claases()
+    public function class()
     {
         return $this->belongsTo(Classes::class);
     }

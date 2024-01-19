@@ -29,7 +29,7 @@ class AdminPanelProvider extends PanelProvider
             ->registration()
             ->login()
             ->colors([
-                'primary' => Color::Emerald,
+                'primary' => Color::Sky,
             ])
             ->brandName('Student Dashboard')
             // ->brandLogo(asset('img/logo testing.jpg'))
