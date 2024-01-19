@@ -21,11 +21,15 @@ class ClassesResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationGroup = "Academics Management";
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 TextInput::make('name')
+                    ->unique(ignoreRecord: true)
+                    ->required()
             ]);
     }
 
@@ -33,7 +37,11 @@ class ClassesResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name')
+                TextColumn::make('name'),
+                TextColumn::make('sections.name')
+                    ->badge(),
+                TextColumn::make('students_count')->counts('students')
+                    ->badge('students')->badge()
             ])
             ->filters([
                 //
